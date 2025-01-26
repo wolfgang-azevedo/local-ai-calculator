@@ -1,0 +1,23 @@
+# /projeto/Dockerfile.dev
+FROM node:18-alpine
+
+# Instalar dependências necessárias
+RUN apk add --no-cache python3 make g++
+
+# Definir diretório de trabalho
+WORKDIR /app
+
+# Copiar arquivos de dependência
+COPY package*.json ./
+
+# Instalar dependências
+RUN npm install
+
+# Copiar código fonte
+COPY . .
+
+# Expor porta de desenvolvimento
+EXPOSE 3005
+
+# Comando para iniciar em modo de desenvolvimento
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "3005"]

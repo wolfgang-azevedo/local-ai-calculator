@@ -1,0 +1,84 @@
+<!-- /projeto/public/index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Local AI Model Calculator - Calculate resources for AI models">
+    
+    <!-- Favicon e ícones -->
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/logo192.png">
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Título -->
+    <title>Local AI Model Calculator</title>
+
+    <!-- Meta tags para redes sociais -->
+    <meta property="og:title" content="Local AI Model Calculator">
+    <meta property="og:description" content="Local AI Model Calculator - Calculate resources for AI models">
+    <meta property="og:image" content="/og-image.png">
+    <meta property="og:url" content="https://localmodelcalculator.ai">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Estilos inline críticos -->
+    <style>
+        /* Estilos para o loading inicial */
+        #root:empty {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8fafc;
+        }
+
+        #root:empty::after {
+            content: "";
+            width: 50px;
+            height: 50px;
+            border: 3px solid #e2e8f0;
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            animation: loading 1s linear infinite;
+        }
+
+        @keyframes loading {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Previne FOUC (Flash of Unstyled Content) */
+        html {
+            visibility: hidden;
+        }
+        html.fonts-loaded {
+            visibility: visible;
+        }
+    </style>
+
+    <!-- Script para carregar fontes -->
+    <script>
+        // Verifica se as fontes foram carregadas
+        if ("fonts" in document) {
+            Promise.all([
+                document.fonts.load("1em Inter"),
+                document.fonts.load("700 1em Inter")
+            ]).then(() => {
+                document.documentElement.classList.add("fonts-loaded");
+            });
+        } else {
+            document.documentElement.classList.add("fonts-loaded");
+        }
+    </script>
+</head>
+<body>
+    <noscript>Você precisa habilitar JavaScript para executar esta aplicação.</noscript>
+    <div id="root"></div>
+</body>
+</html>

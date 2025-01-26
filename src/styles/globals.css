@@ -1,0 +1,146 @@
+/* /projeto/src/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+ 
+  .dark,
+  [data-theme="dark"] {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+}
+
+@layer components {
+  /* Estilos existentes */
+  .gpu-list {
+    @apply max-h-96 overflow-y-auto pr-2;
+  }
+
+  .gpu-search {
+    @apply w-full mb-4 px-3 py-2 border rounded-md;
+  }
+  
+  .gpu-specs {
+    @apply grid grid-cols-2 gap-4 mt-4;
+  }
+
+  .gpu-recommendations {
+    @apply mt-4 p-4 bg-secondary/10 rounded-md;
+  }
+
+  .case-study {
+    @apply mb-6 p-6 border rounded-lg;
+  }
+
+  .case-study-header {
+    @apply mb-4;
+  }
+
+  .case-study-content {
+    @apply grid grid-cols-2 gap-4;
+  }
+
+  .case-study-source {
+    @apply mt-4 text-sm text-muted-foreground;
+  }
+
+  .results-section {
+    @apply space-y-4;
+  }
+
+  .results-metrics {
+    @apply grid grid-cols-3 gap-4;
+  }
+
+  .metric-card {
+    @apply p-4 border rounded-md;
+  }
+
+  /* Novos estilos para o ComboboxGPU */
+  .gpu-combobox-dropdown {
+    @apply max-h-[300px] overflow-y-auto rounded-md border bg-popover p-1 shadow-md;
+  }
+
+  .gpu-combobox-dropdown::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  .gpu-combobox-dropdown::-webkit-scrollbar-track {
+    @apply bg-transparent rounded-full;
+  }
+
+  .gpu-combobox-dropdown::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full;
+  }
+
+  .gpu-combobox-dropdown::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+
+  .gpu-option {
+    @apply flex flex-col gap-1 px-3 py-2 rounded-sm cursor-pointer
+    transition-colors duration-100 hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .gpu-option-selected {
+    @apply bg-accent text-accent-foreground;
+  }
+
+  .gpu-option-header {
+    @apply flex justify-between items-center font-medium;
+  }
+
+  .gpu-option-details {
+    @apply text-sm text-muted-foreground;
+  }
+}
